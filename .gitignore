@@ -11,10 +11,3 @@ dist
 *.swo
 *~
 resume/
-
-
-node_modules/
-dist/
-.claude/
-CLAUDE.md
-PROJECT_GOALS.md

@@ -26,7 +26,7 @@ export default function Home() {
 
           <Section>
             <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl mx-auto mb-10">
-              Building LLM-powerasdasdsaed systems, RAG pipelines, and data products that turn
+              Building LLM-powered systems, RAG pipelines, and data products that turn
               complex information into practical tools, faster workflows, and better decisions.
             </p>
           </Section>
