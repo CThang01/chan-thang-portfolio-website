@@ -75,13 +75,13 @@ export default function Resume() {
             <SectionTitle icon={<Briefcase size={18} />} title="Experience" />
           </Section>
           <div className="mt-8 space-y-4">
-            <Section><ExperienceCard title="Associate AI Engineer" company="Lowe's Company, Inc." location="Charlotte, NC" period="Sep 2025 — Present" bullets={[
+            <Section><ExperienceCard title="Associate AI Engineer" company="Lowe's Company, Inc." location="Charlotte, NC" period="Oct 2025 — Present" bullets={[
               'Completed internal AI Engineering bootcamp covering Python, LLM systems, vector databases, and RAG architectures',
               'Built an end-to-end RAG system for enterprise document question answering',
               'Developed ingestion pipelines including crawling, preprocessing, chunking, embedding generation, and Pinecone indexing',
               'Implemented FastAPI backend with retrieval, reranking, and LLM response workflows',
             ]} /></Section>
-            <Section><ExperienceCard title="Associate Data Analyst" company="Lowe's Company, Inc." location="Charlotte, NC" period="Sep 2023 — Sep 2025" bullets={[
+            <Section><ExperienceCard title="Associate Data Analyst" company="Lowe's Company, Inc." location="Charlotte, NC" period="Sep 2023 — Oct 2025" bullets={[
               'Built a full-stack React application to automate reporting and centralize analytics',
               'Integrated LLM models and embedding pipelines for enterprise data classification',
               'Developed Python pipelines processing hundreds of millions of records across databases',
