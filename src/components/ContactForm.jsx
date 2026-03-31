@@ -4,9 +4,9 @@ import { sanitizeInput, validateEmail } from '../utils/security'
 import emailjs from '@emailjs/browser'
 
 // EmailJS configuration — replace these with your actual IDs from https://emailjs.com
-const EMAILJS_SERVICE_ID = 'service_lfkgycn'
-const EMAILJS_TEMPLATE_ID = 'template_dn3rfos'
-const EMAILJS_PUBLIC_KEY = 'kJTjfc2WlrJR6iRJe'
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 export default function ContactForm() {
   const formRef = useRef()

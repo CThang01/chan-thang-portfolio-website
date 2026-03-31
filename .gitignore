@@ -11,6 +11,8 @@ dist
 *.swo
 *~
 resume/
+.env
+.env.local
 .claude/
 CLAUDE.md
 PROJECT_GOALS.md
