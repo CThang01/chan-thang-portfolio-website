@@ -27,31 +27,34 @@ export default function Navigation() {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50'
+        ? 'bg-white/80 dark:bg-black/80 backdrop-blur-xl shadow-sm shadow-gray-200/50 dark:shadow-gray-900/50'
         : 'bg-transparent'
-    }`}>
+    } border-b border-gray-200/60 dark:border-gray-800/60`}>
       <div className="max-w-5xl mx-auto px-6">
-        <div className="flex justify-between items-center h-12">
+        <div className="flex justify-between items-center h-14">
           <Link to="/" className="text-sm font-semibold text-gray-900 dark:text-white">
             Chan Thang
           </Link>
 
-          <div className="hidden md:flex items-center gap-0.5">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                className={`relative px-3 py-1 text-xs font-medium transition-colors ${
                   isActive(link.path)
-                    ? 'text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800'
+                    ? 'text-gray-900 dark:text-white'
                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 {link.label}
+                {isActive(link.path) && (
+                  <span className="absolute -bottom-[17px] left-1/2 -translate-x-1/2 w-4/5 h-[2px] bg-gray-900 dark:bg-white rounded-full" />
+                )}
               </Link>
             ))}
 
-            <div className="w-px h-3 bg-gray-200 dark:bg-gray-700 mx-1.5" />
+            <div className="w-px h-4 bg-gray-200 dark:bg-gray-700 mx-2" />
 
             <button
               onClick={toggleDarkMode}

@@ -19,7 +19,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scroll reveal animations */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -36,7 +35,6 @@ body {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 
-/* Stagger children */
 .stagger-children > * {
   opacity: 0;
   transform: translateY(16px);

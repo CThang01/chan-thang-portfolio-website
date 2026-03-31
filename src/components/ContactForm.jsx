@@ -1,8 +1,15 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Send, AlertCircle, CheckCircle } from 'lucide-react'
 import { sanitizeInput, validateEmail } from '../utils/security'
+import emailjs from '@emailjs/browser'
+
+// EmailJS configuration — replace these with your actual IDs from https://emailjs.com
+const EMAILJS_SERVICE_ID = 'service_lfkgycn'
+const EMAILJS_TEMPLATE_ID = 'template_dn3rfos'
+const EMAILJS_PUBLIC_KEY = 'kJTjfc2WlrJR6iRJe'
 
 export default function ContactForm() {
+  const formRef = useRef()
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState(null)
@@ -34,25 +41,24 @@ export default function ContactForm() {
     setIsSubmitting(true)
     setStatus(null)
     try {
-      const d = {
-        name: sanitizeInput(formData.name),
-        email: sanitizeInput(formData.email),
-        subject: sanitizeInput(formData.subject),
-        message: sanitizeInput(formData.message),
-      }
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
-        body: JSON.stringify(d),
-      })
-      if (res.ok) {
-        setStatus({ type: 'success', message: "Message sent! I'll get back to you soon." })
-        setFormData({ name: '', email: '', subject: '', message: '' })
-      } else {
-        setStatus({ type: 'error', message: 'Failed to send. Please try again.' })
-      }
-    } catch {
-      setStatus({ type: 'error', message: 'An error occurred. Please try again.' })
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: sanitizeInput(formData.name),
+          reply_to: sanitizeInput(formData.email),
+          subject: sanitizeInput(formData.subject),
+          message: sanitizeInput(formData.message),
+          to_email: 'chankapthang300@gmail.com',
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      )
+      console.log('EmailJS success:', result)
+      setStatus({ type: 'success', message: "Message sent! I'll get back to you soon." })
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    } catch (err) {
+      console.error('EmailJS error:', err)
+      setStatus({ type: 'error', message: 'Failed to send. Please try again.' })
     } finally {
       setIsSubmitting(false)
     }
@@ -64,7 +70,7 @@ export default function ContactForm() {
     }`
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 p-6 sm:p-8 rounded-2xl border border-gray-100 dark:border-gray-800">
+    <form ref={formRef} onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 p-6 sm:p-8 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm">
       <div className="space-y-4">
         <Field id="name" label="Name" type="text" value={formData.name} onChange={handleChange} error={errors.name} placeholder="Your name" max="100" cls={inp('name')} />
         <Field id="email" label="Email" type="email" value={formData.email} onChange={handleChange} error={errors.email} placeholder="you@example.com" max="254" cls={inp('email')} />
@@ -88,7 +94,7 @@ export default function ContactForm() {
         )}
 
         <button type="submit" disabled={isSubmitting}
-          className="w-full bg-gray-900 dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-200 disabled:opacity-40 text-white dark:text-gray-900 font-semibold py-3 rounded-full transition-colors flex items-center justify-center gap-2 text-sm">
+          className="w-full bg-gray-900 dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-200 disabled:opacity-40 text-white dark:text-gray-900 font-semibold py-3 rounded-full transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm">
           <Send size={14} />
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>

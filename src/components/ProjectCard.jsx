@@ -2,7 +2,7 @@ import { ExternalLink, Github } from 'lucide-react'
 
 export default function ProjectCard({ project }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-sm transition-all duration-300 h-full flex flex-col overflow-hidden">
+    <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col overflow-hidden">
 
       {/*
         PROJECT IMAGE

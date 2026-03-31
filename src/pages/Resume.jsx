@@ -25,7 +25,7 @@ export default function Resume() {
               </p>
               <button
                 onClick={handleDownload}
-                className="inline-flex items-center gap-2 bg-gray-900 dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-200 text-white dark:text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold transition-colors"
+                className="inline-flex items-center gap-2 bg-gray-900 dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-200 text-white dark:text-gray-900 px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md hover:shadow-lg"
               >
                 <Download size={15} />
                 Download PDF
@@ -35,8 +35,41 @@ export default function Resume() {
         </div>
       </section>
 
-      {/* Experience */}
+      {/* Technical Skills — moved to top */}
       <section className="bg-gray-50 dark:bg-gray-950 py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <Section>
+            <SectionTitle icon={<Code size={18} />} title="Technical Skills" />
+          </Section>
+          <Section stagger>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { label: 'Programming', skills: ['Python', 'SQL', 'JavaScript', 'Java', 'HTML/CSS'] },
+                { label: 'AI / ML', skills: ['LLMs', 'RAG', 'Embeddings', 'Predictive Modeling'] },
+                { label: 'Data', skills: ['Hadoop', 'Snowflake', 'Teradata', 'Trino', 'BigQuery', 'MongoDB'] },
+                { label: 'Backend', skills: ['FastAPI', 'APIs', 'Data Pipelines', 'Vector DBs'] },
+                { label: 'Analytics', skills: ['Power BI', 'Tableau', 'Alteryx', 'Excel'] },
+              ].map((group) => (
+                <div key={group.label} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 shadow-sm">
+                  <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
+                    {group.label}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {group.skills.map((skill) => (
+                      <span key={skill} className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2.5 py-1 rounded-full text-xs font-medium">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Section>
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <Section>
             <SectionTitle icon={<Briefcase size={18} />} title="Experience" />
@@ -69,69 +102,39 @@ export default function Resume() {
         </div>
       </section>
 
-      {/* Skills + Education side by side */}
-      <section className="py-20 px-6">
+      {/* Education + Activities */}
+      <section className="bg-gray-50 dark:bg-gray-950 py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Skills */}
-            <div>
-              <Section>
-                <SectionTitle icon={<Code size={18} />} title="Technical Skills" />
-              </Section>
-              <Section stagger>
-                <div className="mt-8 space-y-5">
-                  {[
-                    { label: 'Programming', skills: ['Python', 'SQL', 'JavaScript', 'Java', 'HTML/CSS'] },
-                    { label: 'AI / ML', skills: ['LLMs', 'RAG', 'Embeddings', 'Predictive Modeling'] },
-                    { label: 'Data', skills: ['Hadoop', 'Snowflake', 'Teradata', 'Trino', 'BigQuery', 'MongoDB'] },
-                    { label: 'Backend', skills: ['FastAPI', 'APIs', 'Data Pipelines', 'Vector DBs'] },
-                    { label: 'Analytics', skills: ['Power BI', 'Tableau', 'Alteryx', 'Excel'] },
-                  ].map((group) => (
-                    <div key={group.label}>
-                      <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
-                        {group.label}
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {group.skills.map((skill) => (
-                          <span key={skill} className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2.5 py-1 rounded-full text-xs font-medium">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Section>
-            </div>
-
-            {/* Education + Activities */}
             <div>
               <Section>
                 <SectionTitle icon={<GraduationCap size={18} />} title="Education" />
               </Section>
               <Section>
                 <div className="mt-8 space-y-4">
-                  <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800">
+                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 shadow-sm">
                     <p className="font-semibold text-gray-900 dark:text-white text-sm">B.S. Business Management Information Systems</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Minor in Data Science</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">UNC Charlotte &middot; Dec 2025</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800">
+                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 shadow-sm">
                     <p className="font-semibold text-gray-900 dark:text-white text-sm">A.A. Business Administration</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Central Piedmont CC &middot; May 2023</p>
                   </div>
                 </div>
               </Section>
+            </div>
 
+            <div>
               <Section>
-                <div className="mt-12">
-                  <SectionTitle icon={<Award size={18} />} title="Activities" />
-                  <div className="mt-6 space-y-3">
-                    <p className="text-sm text-gray-600 dark:text-gray-300">High School Volleyball Coach</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Worship Team Musician <span className="text-gray-400 dark:text-gray-500">(Drums & Guitar)</span>
-                    </p>
-                  </div>
+                <SectionTitle icon={<Award size={18} />} title="Activities" />
+              </Section>
+              <Section>
+                <div className="mt-8 space-y-3">
+                  <p className="text-sm text-gray-600 dark:text-gray-300">High School Volleyball Coach</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    Worship Team Musician <span className="text-gray-400 dark:text-gray-500">(Drums & Guitar)</span>
+                  </p>
                 </div>
               </Section>
             </div>
@@ -153,7 +156,7 @@ function SectionTitle({ icon, title }) {
 
 function ExperienceCard({ title, company, location, period, bullets }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+    <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-0.5 mb-3">
         <div>
           <h3 className="font-bold text-gray-900 dark:text-white">{title}</h3>

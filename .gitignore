@@ -11,3 +11,6 @@ dist
 *.swo
 *~
 resume/
+.claude/
+CLAUDE.md
+PROJECT_GOALS.md

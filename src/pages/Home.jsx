@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Linkedin, Mail } from 'lucide-react'
+import { ArrowRight, Linkedin, Mail, ChevronDown } from 'lucide-react'
 import ProjectCard from '../components/ProjectCard'
 import Section from '../components/Section'
 import { projectsData } from '../data/projects'
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero — full viewport, centered, Apple-style */}
-      <section className="min-h-screen flex items-center justify-center px-6">
+      <section className="min-h-screen flex flex-col items-center justify-center px-6 relative">
         <div className="max-w-3xl mx-auto text-center">
           <Section>
             <p className="text-sm font-medium text-gray-400 dark:text-gray-500 tracking-widest uppercase mb-6">
@@ -35,14 +35,14 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 bg-gray-900 dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-200 text-white dark:text-gray-900 px-6 py-3 rounded-full text-sm font-semibold transition-colors"
+                className="inline-flex items-center gap-2 bg-gray-900 dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-200 text-white dark:text-gray-900 px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-md hover:shadow-lg"
               >
                 View My Work
                 <ArrowRight size={15} />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900 text-gray-600 dark:text-gray-300 px-6 py-3 rounded-full text-sm font-semibold transition-colors"
+                className="inline-flex items-center gap-2 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900 text-gray-600 dark:text-gray-300 px-6 py-3 rounded-full text-sm font-semibold transition-all hover:shadow-md"
               >
                 Get In Touch
               </Link>
@@ -62,6 +62,11 @@ export default function Home() {
               </a>
             </div>
           </Section>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <ChevronDown size={22} className="text-gray-300 dark:text-gray-600" />
         </div>
       </section>
 
@@ -160,7 +165,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 lg:py-28 px-6">
+      <section className="py-20 lg:py-28 px-6 border-t border-gray-100 dark:border-gray-800">
         <div className="max-w-3xl mx-auto text-center">
           <Section>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-5">
@@ -171,7 +176,7 @@ export default function Home() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-gray-900 dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-200 text-white dark:text-gray-900 px-8 py-3.5 rounded-full text-sm font-semibold transition-colors"
+              className="inline-flex items-center gap-2 bg-gray-900 dark:bg-white hover:bg-gray-700 dark:hover:bg-gray-200 text-white dark:text-gray-900 px-8 py-3.5 rounded-full text-sm font-semibold transition-all shadow-md hover:shadow-lg"
             >
               Get In Touch
               <ArrowRight size={15} />
@@ -185,7 +190,7 @@ export default function Home() {
 
 function Stat({ label, value }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+    <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-300">
       <p className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">{value}</p>
       <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">{label}</p>
     </div>
@@ -194,7 +199,7 @@ function Stat({ label, value }) {
 
 function ExpertiseCard({ title, description, tools }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800">
+    <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-lg hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300">
       <h3 className="text-base font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
       <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">{description}</p>
       <div className="flex flex-wrap gap-1.5">
