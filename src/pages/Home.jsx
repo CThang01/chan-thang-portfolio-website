@@ -14,7 +14,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto text-center">
           <Section>
             <p className="text-sm font-medium text-gray-400 dark:text-gray-500 tracking-widest uppercase mb-6">
-              AI Engineer / Data Analyst / Software Engineer / Data Engineer
+              AI Engineer & Life Long Learner
             </p>
           </Section>
 

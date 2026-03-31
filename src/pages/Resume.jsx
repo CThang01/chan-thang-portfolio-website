@@ -81,7 +81,7 @@ export default function Resume() {
               'Developed ingestion pipelines including crawling, preprocessing, chunking, embedding generation, and Pinecone indexing',
               'Implemented FastAPI backend with retrieval, reranking, and LLM response workflows',
             ]} /></Section>
-            <Section><ExperienceCard title="Associate Data Analyst" company="Lowe's Company, Inc." location="Charlotte, NC" period="Sep 2023 — Present" bullets={[
+            <Section><ExperienceCard title="Associate Data Analyst" company="Lowe's Company, Inc." location="Charlotte, NC" period="Sep 2023 — Sep 2025" bullets={[
               'Built a full-stack React application to automate reporting and centralize analytics',
               'Integrated LLM models and embedding pipelines for enterprise data classification',
               'Developed Python pipelines processing hundreds of millions of records across databases',
@@ -131,10 +131,16 @@ export default function Resume() {
               </Section>
               <Section>
                 <div className="mt-8 space-y-3">
-                  <p className="text-sm text-gray-600 dark:text-gray-300">High School Volleyball Coach</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    Volleyball Coach <span className="text-gray-400 dark:text-gray-500">(Highschool & Club)</span>
+                  </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
                     Worship Team Musician <span className="text-gray-400 dark:text-gray-500">(Drums & Guitar)</span>
                   </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Rock Climbing</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Snow Boarding</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Volleyball</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Soccer</p>
                 </div>
               </Section>
             </div>

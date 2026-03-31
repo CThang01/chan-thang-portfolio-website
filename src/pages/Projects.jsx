@@ -14,7 +14,7 @@ export default function Projects() {
                 Projects
               </h1>
               <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-                Things I've built — from AI systems to full-stack applications.
+                Production-minded AI and software projects focused on automation, intelligence, and scale.
               </p>
             </div>
           </Section>
